@@ -62,10 +62,17 @@
     </choose>
   </macro>
   <macro name="citeKey">
-    <group>
-      <text macro="author-short" text-case="lowercase"/>
-      <text macro="issued-year"/>
-    </group>
+    <choose>
+      <if variable="author">
+        <group>
+          <text macro="author-short" text-case="lowercase"/>
+          <text macro="issued-year"/>
+        </group>
+      </if>
+      <else>
+        <text variable="citation-label"/>
+      </else>
+    </choose>
   </macro>
   <macro name="author-short">
     <names variable="author">
